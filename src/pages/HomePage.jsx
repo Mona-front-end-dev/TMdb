@@ -5,6 +5,7 @@ import Popular from '../components/Movies/Popular';
 import TopListed from '../components/Movies/TopListed';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
+import Genres from '../components/Genres'
 
 const HomePage = () => {
 	return (
@@ -18,6 +19,9 @@ const HomePage = () => {
 				</Tab>
 				<Tab eventKey='topListed' title='The Top Listed Movies'>
 					<TopListed />
+				</Tab>
+        <Tab eventKey='genres' title='Genres'>
+					<Genres />
 				</Tab>
 			</Tabs>
 		</Container>
