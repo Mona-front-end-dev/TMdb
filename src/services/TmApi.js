@@ -27,5 +27,12 @@
   return data.data;
 };
 
+//create Endpoint to get top-listed movies
+export const getTopListed = async () => {
+  const endpoint = 'movie/top_rated?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&page=1&region=US&sort_by=vote-avarage.desc'; 
+  const data = await get(endpoint);
+  return data.data;
+};
+
  
 
