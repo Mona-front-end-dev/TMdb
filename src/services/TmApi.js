@@ -1,5 +1,6 @@
 /**
- * API Service
+ * The TMDB API Service
+ * https://api.themoviedb.org/
  */
 
  import axios from 'axios';
@@ -8,11 +9,15 @@
  
  // returns a promise
  export const get = async (endpoint) => {
-   let respons = await axios.get(baseUrl + endpoint + "/");
+   let respons = await axios.get(baseUrl + endpoint);
    return respons;
  };
  
- export const getEndPoint = async (endpoint) => {
+ //create andpoint to get latest released movies
+ export const getLatestReleased = async () => {
+   const endpoint = 'discover/movie?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&page=1&region=US&sort_by=release_date.desc&release_date.lte=2021-09-08'; 
    const data = await get(endpoint);
    return data.data;
  };
+
+ 
