@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Movie from '../components/Movie'
+import Movie from '../components/Movies'
 
 const HomePage = () => {
   return (
