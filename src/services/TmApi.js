@@ -34,5 +34,11 @@ export const getTopListed = async () => {
   return data.data;
 };
 
+//create Endpoint to get genres
+export const getGenres = async () => {
+  const endpoint = 'genre/movie/list?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US'; 
+  const data = await get(endpoint);
+  return data.data;
+};
  
 
