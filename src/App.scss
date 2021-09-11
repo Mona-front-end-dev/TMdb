@@ -4,4 +4,40 @@
     color: rgb(73, 73, 72);
   }
 
- 
+  .tabs {
+    margin-top: 15px;
+  }
+  
+  .router-link {
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+    padding: 15px;
+    border-right: solid 1px transparent;
+    border-top: solid 1px transparent;
+    border-left: solid 1px transparent;
+    border-bottom: solid 1px #ccc;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .router-link.active, .router-linkL.active:hover {
+    color:blue;
+  }
+  
+  .router-link.active {
+    border-right: solid 1px #ccc;
+    border-left: solid 1px #ccc;
+    border-top: solid 1px #ccc;
+    border-bottom-color: transparent;
+  }
+  
+  .genre-link {
+    margin: 2px;
+    border: solid 1px blue;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+  }
