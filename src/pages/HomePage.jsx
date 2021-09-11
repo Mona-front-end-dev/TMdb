@@ -1,29 +1,11 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Latest from '../components/Movies/Latest';
-import Popular from '../components/Movies/Popular';
-import TopListed from '../components/Movies/TopListed';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
-import Genres from '../components/Genres'
 
 const HomePage = () => {
 	return (
 		<Container>
-			<Tabs defaultActiveKey='Latest Movies' transition={false} id='noanim-tab-example' className='mb-3'>
-				<Tab eventKey='Latest Movies' title='Latest Movies'>
-					<Latest />
-				</Tab>
-				<Tab eventKey='popular' title='The most popular Movies'>
-					<Popular />
-				</Tab>
-				<Tab eventKey='topListed' title='The Top Listed Movies'>
-					<TopListed />
-				</Tab>
-        <Tab eventKey='genres' title='Genres'>
-					<Genres />
-				</Tab>
-			</Tabs>
+      <h1 className="text-center my-5">Welcome to TMdb!</h1>
+      <h3 className="text-center">Here you can find your instrested movie easily by different categories.<br></br>Click on related tab to see the list of movies.</h3>
 		</Container>
 	);
 };
