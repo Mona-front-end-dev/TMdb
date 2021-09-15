@@ -8,6 +8,7 @@ import './App.scss';
 import TopListed from './components/Movies/TopListed';
 import Genres from './components/Genres';
 import Popular from './components/Movies/Popular';
+import MovieDetailsPage from './pages/MovieDetailsPage'
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path='/genres/:id'>
           <Genres />
+        </Route>
+        <Route path='/movies/:id'>
+          <MovieDetailsPage />
         </Route>
         <Route path='/popular'>
           <Popular />
