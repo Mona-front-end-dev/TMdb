@@ -10,19 +10,22 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      staleTime: 1000 * 10, //10 seconds
+      staleTime: 1000 * 60 * 2, // 2 minutes
+			cacheTime: 1000 * 60 * 60 * 4, // 4 hours
     },
   },
 });
 
 ReactDOM.render(
   <React.StrictMode>
+
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <App />
         <ReactQueryDevtools initialIsOpen={false} />
       </BrowserRouter>
     </QueryClientProvider>
+  
   </React.StrictMode>,
   document.getElementById('root')
 );
