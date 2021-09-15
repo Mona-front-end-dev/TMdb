@@ -58,13 +58,14 @@ export const getMoviesByGenreId = async (id) => {
   return data.data;
 };
 
-//create Endpoint to get movie details by movie ID
-export const getDetailsByMovieId = async (id) => {
+//create Endpoint to get movie details + it chatacters by movie id
+export const getDetailsAndCharactersByMovieId = async (id) => {
   const endpoint =
-    `movie/${id}?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US`
+    `movie/${id}?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&append_to_response=credits`
   const data = await get(endpoint);
   return data.data;
 };
+
 
 export default {
   getLatestReleased,
@@ -72,5 +73,5 @@ export default {
   getTopListed,
   getGenres,
   getMoviesByGenreId,
-  getDetailsByMovieId,
+  getDetailsAndCharactersByMovieId
 };

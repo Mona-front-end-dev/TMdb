@@ -2,7 +2,8 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Card from 'react-bootstrap/Card';
 import { useParams } from 'react-router-dom';
-import { getDetailsByMovieId } from '../services/TmApi';
+import CharacterCard from '../components/cards/CharacterCard';
+import { getDetailsAndCharactersByMovieId } from '../services/TmApi';
 
 const MoviDetailsPage = () => {
   const { id } = useParams();
@@ -10,7 +11,7 @@ const MoviDetailsPage = () => {
 
   const { data, error, isError, isLoading } = useQuery(
     ['movieDetails', id],
-    () => getDetailsByMovieId(id)
+    () => getDetailsAndCharactersByMovieId(id)
   );
 
   return (
@@ -66,6 +67,7 @@ const MoviDetailsPage = () => {
               </p>
             </Card.Text>
           </Card.Body>
+          <CharacterCard data={data} />
         </Card>
       )}
     </>
