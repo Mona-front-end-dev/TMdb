@@ -1,14 +1,14 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
 import { getLatestReleased } from '../../services/TmApi';
 import { useLocation } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import MovieCard from '../cards/MovieCard';
 
 const Latest = () => {
   const { latest } = useLocation();
-  const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w200';
   const { data, error, isError, isLoading } = useQuery('latest', () =>
     getLatestReleased(latest)
   );
@@ -20,14 +20,11 @@ const Latest = () => {
           {isLoading && <p>Movies are loading... </p>}
           {isError && <p>An error occured: {error}</p>}
           {data &&
-            data?.results.map((movie, i) => (
-              <Card style={{ width: '14rem' }} className=' m-2' key={i}>
-                <Card.Title className='text-center my-2 text-dark'>
-                  <img src={tumbnailPreImgUrl + movie.poster_path} />
-                  <span className='text-dark'>{movie.original_title}</span>
-                </Card.Title>
-              </Card>
-            ))}
+              data?.results.map((movie, i) => (
+                <Col xs={12} sm={4} md={3} lg={2} className='mb-4' key={movie.id}>
+                  <MovieCard movie={movie} />
+                </Col>
+              ))}
         </Row>
       </Container>
     </>
