@@ -8,7 +8,7 @@ const MoviCard = ({ movie }) => {
   return (
     <>
       <Link variant='dark' to={`/movies/${movie.id}`}>
-        <Card>
+        <Card className="shadow">
           <Card.Title className='text-center text-dark'>
             <img
               src={tumbnailPreImgUrl + movie.poster_path}

@@ -1,9 +1,11 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
 import PersonCard from '../components/cards/PersonCard';
 import { getDetailsAndCharactersByMovieId } from '../services/TmApi';
+import Container from 'react-bootstrap/Container';
 
 const MoviDetailsPage = () => {
   const { id } = useParams();
@@ -20,52 +22,56 @@ const MoviDetailsPage = () => {
       {isError && <p>An error occured: {error}</p>}
       {data && (
         <Card>
-          <Card.Body className='text-light d-flex p-5 bg-black'>
-            <img
-              src={tumbnailPreImgUrl + data.poster_path}
-              className='img-fluid'
-            />
-            <Card.Text className='p-5'>
-              <p>
-                <strong>{data?.original_title}</strong>
-              </p>
-              <p>
-                {data?.genres.map((genre, i) => (
-                  <>
-                    {genre.name}
-                    {', '}
-                  </>
-                ))}
-              </p>
-              <p>{data?.original_language}</p>
-              <p>
-                {data?.production_countries.map((country, i) => (
-                  <>{country.name}</>
-                ))}
-              </p>
-              <p> {data?.status}</p>
-              <p> {data?.overview}</p>
-              <p>
-                {data?.production_companies.map((company, i) => (
-                  <>
-                    {' '}
-                    {company.name} company {'('}
-                    {company.origin_country}
-                    {')'}
-                    <br />
-                  </>
-                ))}
-              </p>
-              <p>
-                {data?.spoken_languages.map((lang, i) => (
-                  <>
-                    {' '}
-                    {lang.english_name}
-                    {','}
-                  </>
-                ))}
-              </p>
-            </Card.Text>
+          <Card.Body className='text-light row p-5 bg-black'>
+            <Col xs={3}>
+              <img
+                src={tumbnailPreImgUrl + data.poster_path}
+                className='img-fluid'
+              />
+            </Col>
+            <Col>
+              <Card.Text>
+                <p>
+                  <strong>{data?.original_title}</strong>
+                </p>
+                <p>
+                  {data?.genres.map((genre, i) => (
+                    <>
+                      {genre.name}
+                      {', '}
+                    </>
+                  ))}
+                </p>
+                <p>{data?.original_language}</p>
+                <p>
+                  {data?.production_countries.map((country, i) => (
+                    <>{country.name}</>
+                  ))}
+                </p>
+                <p> {data?.status}</p>
+                <p> {data?.overview}</p>
+                <p>
+                  {data?.production_companies.map((company, i) => (
+                    <>
+                      {' '}
+                      {company.name} company {'('}
+                      {company.origin_country}
+                      {')'}
+                      <br />
+                    </>
+                  ))}
+                </p>
+                <p>
+                  {data?.spoken_languages.map((lang, i) => (
+                    <>
+                      {' '}
+                      {lang.english_name}
+                      {','}
+                    </>
+                  ))}
+                </p>
+              </Card.Text>
+            </Col>
           </Card.Body>
           <PersonCard data={data} />
         </Card>
