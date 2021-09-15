@@ -14,7 +14,7 @@ const Genres = () => {
 
   return (
     <>
-      <Container>
+     
         <Row className='m-2'>
           <Col md={4}>
             {isLoading && <p>Movies are loading... </p>}
@@ -34,7 +34,7 @@ const Genres = () => {
             <Genre />
           </Col>
         </Row>
-      </Container>
+     
     </>
   );
 };
