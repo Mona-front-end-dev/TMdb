@@ -17,7 +17,7 @@ const Genres = () => {
       <Container>
         <Row className='m-2'>
           <Col md={4}>
-            {isLoading && <p>Movies are laoding... </p>}
+            {isLoading && <p>Movies are loading... </p>}
             {isError && <p>An error occured: {error}</p>}
             {data &&
               data?.genres.map((genre, i) => (
