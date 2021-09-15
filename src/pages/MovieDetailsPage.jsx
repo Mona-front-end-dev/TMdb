@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Card from 'react-bootstrap/Card';
 import { useParams } from 'react-router-dom';
-import CharacterCard from '../components/cards/CharacterCard';
+import PersonCard from '../components/cards/PersonCard';
 import { getDetailsAndCharactersByMovieId } from '../services/TmApi';
 
 const MoviDetailsPage = () => {
@@ -67,7 +67,7 @@ const MoviDetailsPage = () => {
               </p>
             </Card.Text>
           </Card.Body>
-          <CharacterCard data={data} />
+          <PersonCard data={data} />
         </Card>
       )}
     </>
