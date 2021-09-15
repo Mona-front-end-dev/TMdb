@@ -19,30 +19,53 @@ const MoviDetailsPage = () => {
       {isError && <p>An error occured: {error}</p>}
       {data && (
         <Card>
-          <Card.Title className='text-center text-dark'>
+          <Card.Body className='text-light d-flex p-5 bg-black'>
             <img
               src={tumbnailPreImgUrl + data.poster_path}
               className='img-fluid'
             />
-            <p className='text-dark'>Name:{data?.original_title}</p>
-            <p className='text-dark'>
-              Genres:
-              {data?.genres.map((genre, i) => (
-                <span>
-                  {genre.name}
-                  {', '}
-                </span>
-              ))}
-            </p>
-            <p className='text-dark'>Language:{data?.original_language}</p>
-            <p className='text-dark'>
-              Production country:
-              {data?.production_countries.map((country, i) => (
-                <p>{country.name}</p>
-              ))}
-            </p>
-            <p className='text-dark'>Status:{data?.status}</p>
-          </Card.Title>
+            <Card.Text className='p-5'>
+              <p>
+                <strong>{data?.original_title}</strong>
+              </p>
+              <p>
+                {data?.genres.map((genre, i) => (
+                  <>
+                    {genre.name}
+                    {', '}
+                  </>
+                ))}
+              </p>
+              <p>{data?.original_language}</p>
+              <p>
+                {data?.production_countries.map((country, i) => (
+                  <>{country.name}</>
+                ))}
+              </p>
+              <p> {data?.status}</p>
+              <p> {data?.overview}</p>
+              <p>
+                {data?.production_companies.map((company, i) => (
+                  <>
+                    {' '}
+                    {company.name} company {'('}
+                    {company.origin_country}
+                    {')'}
+                    <br />
+                  </>
+                ))}
+              </p>
+              <p>
+                {data?.spoken_languages.map((lang, i) => (
+                  <>
+                    {' '}
+                    {lang.english_name}
+                    {','}
+                  </>
+                ))}
+              </p>
+            </Card.Text>
+          </Card.Body>
         </Card>
       )}
     </>

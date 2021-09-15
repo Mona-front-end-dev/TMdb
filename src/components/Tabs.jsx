@@ -4,7 +4,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 
 const Tabs = () => {
 	return (
-		<div className='tabs'>
+		<div className='tabs mb-4'>
 			<Container>
 				<Row>
 					<Col>
