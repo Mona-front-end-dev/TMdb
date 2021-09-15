@@ -58,10 +58,18 @@ export const getMoviesByGenreId = async (id) => {
   return data.data;
 };
 
-//create Endpoint to get movie details + it chatacters by movie id
+//create Endpoint to get movie details + its chatacters by movie id
 export const getDetailsAndCharactersByMovieId = async (id) => {
   const endpoint =
     `movie/${id}?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&append_to_response=credits`
+  const data = await get(endpoint);
+  return data.data;
+};
+
+//create Endpoint to get person details by id
+export const getPersonsDetailsByPersonId = async (id) => {
+  const endpoint =
+    `/person/${id}?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US`
   const data = await get(endpoint);
   return data.data;
 };
