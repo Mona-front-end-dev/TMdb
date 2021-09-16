@@ -3,7 +3,6 @@ import { useQuery } from 'react-query';
 import Card from 'react-bootstrap/Card';
 import { useParams } from 'react-router-dom';
 import { getPersonsDetailsByPersonId } from '../services/TmApi';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
@@ -25,24 +24,24 @@ const PersonDetailsPage = () => {
       {isError && <p>An error occured: {error}</p>}
       {data && (
         <Card className='shadow'>
-          <Row className=' mt-5 mx-3'>
+          <Row className='mt-5 mx-3'>
             <Col>
               <Image src={tumbnailPreImgUrl + data.profile_path} rounded />
               <Card.Body className='text-dark'>
                 <Card.Text className='text-dark'>
-                  Born on {data.birthday}
+                  {(data.birthday?<><strong>Born on </strong>{data.birthday}</>:(''))}
                 </Card.Text>
                 <Card.Text className='text-dark'>
-                  Born att {data.place_of_birth}
+                {(data.birthday?<><strong>Born att</strong> {data.place_of_birth}</>:(''))}
                 </Card.Text>
                 <Card.Text className='text-dark'>
-                  Known for {data.known_for_department} department
+                 {(data.known_for_department?<><strong> Known for </strong>{data.known_for_department}</>:(''))}
                 </Card.Text>
               </Card.Body>
             </Col>
             <Col sm={8}>
               <Card.Title>{data.name}</Card.Title>
-              <Card.Text>{data.biography}</Card.Text>
+              <Card.Text>{(data.biography?<>{data.biography}</>:(`There is no biography available for ${data.name}`))}</Card.Text>
               <PersonsMovieCard />
             </Col>
           </Row>
