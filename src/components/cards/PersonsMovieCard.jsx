@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { getPersonsMoviesByPersonId } from '../../services/TmApi';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const PersonsMovieCard = () => {
   const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w200';
@@ -15,22 +17,26 @@ const PersonsMovieCard = () => {
 
   return (
     <>
-      {isLoading && <p>Movies are laoding... </p>}
-      {isError && <p>An error occured: {error}</p>}
-      {data &&
-        data?.credits.cast.map((pmovie, i) => (
-          <Link variant='dark' to={`/movies/${pmovie.id}`}>
-            <Card className='shadow'>
-              <Card.Title className='text-center text-dark'>
-                <img
-                  src={tumbnailPreImgUrl + pmovie.poster_path}
-                  className='img-fluid'
-                />
-                <span className='text-dark'>{pmovie.original_title}</span>
-              </Card.Title>
-            </Card>
-          </Link>
-        ))}
+      <Row>
+        {isLoading && <p>Movies are laoding... </p>}
+        {isError && <p>An error occured: {error}</p>}
+        {data &&
+          data?.credits.cast.map((pmovie, i) => (
+            <Col md={3}>
+              <Link variant='dark' to={`/movies/${pmovie.id}`}>
+                <Card className='shadow'>
+                    <img
+                      src={tumbnailPreImgUrl + pmovie.poster_path}
+                      className='img-fluid'
+                    />
+                  <Card.Text className='text-dark'>
+                    {pmovie.original_title}
+                  </Card.Text>
+                </Card>
+              </Link>
+            </Col>
+          ))}
+      </Row>
     </>
   );
 };

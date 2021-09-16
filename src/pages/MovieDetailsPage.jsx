@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
 import PersonCard from '../components/cards/PersonCard';
 import { getDetailsAndCharactersByMovieId } from '../services/TmApi';
-import Container from 'react-bootstrap/Container';
 
 const MoviDetailsPage = () => {
   const { id } = useParams();
@@ -21,7 +20,7 @@ const MoviDetailsPage = () => {
       {isLoading && <p>Details are loading... </p>}
       {isError && <p>An error occured: {error}</p>}
       {data && (
-        <Card>
+        <>
           <Card.Body className='text-light row p-5 bg-black'>
             <Col xs={3}>
               <img
@@ -74,7 +73,7 @@ const MoviDetailsPage = () => {
             </Col>
           </Card.Body>
           <PersonCard data={data} />
-        </Card>
+        </>
       )}
     </>
   );
