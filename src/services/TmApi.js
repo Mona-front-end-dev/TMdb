@@ -52,8 +52,7 @@ export const getGenres = async () => {
 //create Endpoint to get movies by genre ID
 export const getMoviesByGenreId = async (id) => {
   const endpoint =
-    'discover/movie?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&page=1&region=US&primary_release_date.lte=2021-09-08&with_genres=' +
-    id;
+    `discover/movie?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&page=1&region=US&primary_release_date.lte=2021-09-08&with_genres=${id}`;
   const data = await get(endpoint);
   return data.data;
 };
@@ -74,12 +73,12 @@ export const getPersonsDetailsByPersonId = async (id) => {
   return data.data;
 };
 
-
-export default {
-  getLatestReleased,
-  getMostPopular,
-  getTopListed,
-  getGenres,
-  getMoviesByGenreId,
-  getDetailsAndCharactersByMovieId
+//create Endpoint to get person's movies by id
+export const getPersonsMoviesByPersonId = async (id) => {
+  const endpoint =
+    `/person/${id}?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&append_to_response=credits`
+  const data = await get(endpoint);
+  return data.data;
 };
+
+

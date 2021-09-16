@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import PersonsMovieCard from '../components/cards/PersonsMovieCard'
+
 
 const PersonDetailsPage = () => {
   const { id } = useParams();
@@ -41,6 +43,7 @@ const PersonDetailsPage = () => {
             <Col sm={8}>
               <Card.Title>{data.name}</Card.Title>
               <Card.Text>{data.biography}</Card.Text>
+              <PersonsMovieCard />
             </Col>
           </Row>
         </Card>
