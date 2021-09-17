@@ -17,8 +17,8 @@ const TopListed = () => {
     <>
       <Container>
         <Row>
-          {isLoading && <p>Movies are laoding... </p>}
-          {isError && <p>An error occured: {error}</p>}
+          {isLoading &&<span>Movies are laoding... </span>}
+          {isError && <span>An error occured: {error}</span>}
           {data &&
             data?.results.map((movie, i) => (
               <Col xs={12} sm={4} md={3} lg={2} className='mb-4' key={movie.id}>

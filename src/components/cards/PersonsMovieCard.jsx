@@ -18,8 +18,8 @@ const PersonsMovieCard = () => {
   return (
     <>
       <Row>
-        {isLoading && <p>Movies are laoding... </p>}
-        {isError && <p>An error occured: {error}</p>}
+        {isLoading && <span>Movies are laoding... </span>}
+        {isError && <span>An error occured: {error}</span>}
         {data &&
           data?.credits.cast.map((pmovie, i) => (
             <Col md={3}>

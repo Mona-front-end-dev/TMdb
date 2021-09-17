@@ -17,8 +17,8 @@ const MoviDetailsPage = () => {
 
   return (
     <>
-      {isLoading && <p>Details are loading... </p>}
-      {isError && <p>An error occured: {error}</p>}
+      {isLoading && <span>Details are loading... </span>}
+      {isError && <span>An error occured: {error}</span>}
       {data && (
         <>
           <Card.Body className='text-light row p-5 bg-black'>
