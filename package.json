@@ -17,6 +17,7 @@
     "react-scripts": "4.0.3",
     "react-spinners": "^0.11.0",
     "sass": "^1.39.0",
+    "use-url-search-params": "^2.3.13",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
