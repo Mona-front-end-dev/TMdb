@@ -1,17 +1,19 @@
-import React from "react";
-import { Button } from "react-bootstrap";
+import React from 'react';
+import { Button } from 'react-bootstrap';
 
 const Pagination = ({ setPage, page, isPreviousData, hasMore }) => {
   return (
-    <div className="m-3">
+    <div className='align-items-center mt-4 d-flex justify-content-between'>
       <Button
+        className='btn-dark'
         onClick={() => setPage((old) => Math.max(old - 1, 1))}
         disabled={page === 1}
       >
         Prev
       </Button>
-      <span>Current {page}</span>
+      <span>Page {page}</span>
       <Button
+        className='btn-dark'
         onClick={() => {
           if (!isPreviousData && hasMore) {
             setPage((old) => old + 1);
