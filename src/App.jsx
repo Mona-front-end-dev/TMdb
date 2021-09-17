@@ -28,7 +28,7 @@ function App() {
           <Route path='/top'>
             <TopListed />
           </Route>
-          <Route path='/genres/:id'>
+          <Route path='/genres/:genreId'>
             <Genres />
           </Route>
           <Route path='/movies/:id'>
