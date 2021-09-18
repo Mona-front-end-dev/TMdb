@@ -17,7 +17,7 @@ const Tabs = () => {
 						<NavLink to='/top' activeClassName='active' className='router-link'>
 							Top list
 						</NavLink>
-						<NavLink to='/genres/28' activeClassName='active' className='router-link'>
+						<NavLink to='/genres' activeClassName='active' className='router-link'>
 							Genres
 						</NavLink>
 					</Col>

@@ -27,8 +27,13 @@ const Genre = () => {
   );
 
   useEffect(() => {   //when page state changes, setSearchParams updates ?= in url. 
-		setSearchParams({ ...searchParams, page })
-	}, [page])
+    setSearchParams({ ...searchParams, page });
+  }, [page]);
+  
+  useEffect(() => {
+    setPage(1);
+    setSearchParams({ ...searchParams, page });
+  }, [genreId]);
 
   return (
     <>

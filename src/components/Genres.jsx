@@ -3,7 +3,7 @@ import { getGenres } from '../services/TmApi';
 import { useQuery } from 'react-query';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Genre from '../components/Genre';
 
 const Genres = () => {
@@ -19,13 +19,14 @@ const Genres = () => {
           {isError && <p>An error occured: {error}</p>}
           {data &&
             data?.genres.map((genre, i) => (
-              <Link
+              <NavLink
                 key={genre.id}
                 className='genre-link'
+                activeClassName='active-genre'
                 to={`/genres/${genre.id}`}
               >
                 {genre.name}
-              </Link>
+              </NavLink>
             ))}
         </Col>
         <Col md={8}>

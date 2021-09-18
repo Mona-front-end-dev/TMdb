@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
 
 const Pagination = ({ setPage, page, isPreviousData, hasMore }) => {
   return (
-    <div className='align-items-center mt-4 d-flex justify-content-between'>
+    <Col className='align-items-center m-5 d-flex justify-content-between'>
       <Button
         className='btn-dark'
         onClick={() => setPage((old) => Math.max(old - 1, 1))}
@@ -23,7 +24,7 @@ const Pagination = ({ setPage, page, isPreviousData, hasMore }) => {
       >
         Next
       </Button>
-    </div>
+    </Col>
   );
 };
 

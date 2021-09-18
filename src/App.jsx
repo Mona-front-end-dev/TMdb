@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Navigation from './pages/partials/Navigation';
 import HomePage from './pages/HomePage';
 import Latest from './components/Movies/Latest';
@@ -32,6 +32,9 @@ function App() {
           </Route>
           <Route path='/genres/:genreId'>
             <Genres />
+          </Route>
+          <Route path='/genres'>
+            <Redirect to="/genres/28" />
           </Route>
           <Route path='/movies/:id'>
             <MovieDetailsPage />
