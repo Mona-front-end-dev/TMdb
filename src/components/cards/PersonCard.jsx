@@ -9,7 +9,7 @@ const PersonCard = ({ data }) => {
 
   return (
     <>
-      <h4 className='mt-4'>Charachters:</h4>
+      <h4 className='mt-4'>Characters:</h4>
       <Row>
         {data?.credits.cast.map((person, i) => (
           <Col md={2} key={i}>

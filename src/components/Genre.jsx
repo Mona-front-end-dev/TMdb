@@ -30,7 +30,7 @@ const Genre = () => {
     setSearchParams({ ...searchParams, page });
   }, [page]);
   
-  useEffect(() => {
+  useEffect(() => { // set pagination to 1 when new genre selected
     setPage(1);
     setSearchParams({ ...searchParams, page });
   }, [genreId]);
