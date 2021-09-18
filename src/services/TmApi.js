@@ -69,7 +69,6 @@ export const getPersonsDetailsByPersonId = async (id) => {
 export const getMoviesByGenrePaginated = async (genreId, page) => {
   const endpoint = `discover/movie?${staticQueries}&primary_release_date.lte=${getCurrentDateAsIso()}&with_genres=${genreId}&page=${page}`;
   const data = await get(endpoint);
-  console.log(getCurrentDateAsIso());
   return data.data;
 };
 

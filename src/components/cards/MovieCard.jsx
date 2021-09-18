@@ -17,9 +17,14 @@ const MoviCard = ({ movie }) => {
             <img
               src={tumbnailPreImgUrl + movie.poster_path}
               className='img-fluid'
+              alt={movie.original_title}
             />
           ) : (
-            <img src='/movie.jpeg' className='img-fluid' />
+            <img 
+              src='/movie.jpeg' 
+              className='img-fluid' 
+              alt={movie.original_title}
+              />
           )}
           <div className='text-dark my-3 movie-card-title d-flex align-items-center justify-content-center'>
             <h5 className='text-center text-dark'>{movie.original_title}</h5>
