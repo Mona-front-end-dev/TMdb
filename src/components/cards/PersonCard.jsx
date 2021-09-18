@@ -9,11 +9,15 @@ const CharacterCard = ({ data }) => {
 
   return (
     <>
-      <h2>Charachters:</h2>
+      <h4 className='mt-4'>Charachters:</h4>
       <Row>
         {data?.credits.cast.map((person, i) => (
           <Col md={2}>
-            <Link variant='dark' className='d-flex' to={`/people/${person.id}`}>
+            <Link
+              variant='dark'
+              className='text-decoration-none'
+              to={`/people/${person.id}`}
+            >
               <Card className='shadow'>
                 <Card.Img
                   variant='top'

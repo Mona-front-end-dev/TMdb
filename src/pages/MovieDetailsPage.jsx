@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import PersonCard from '../components/cards/PersonCard';
 import { getDetailsAndCharactersByMovieId } from '../services/TmApi';
 
+
 const MoviDetailsPage = () => {
   const { id } = useParams();
   const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w200';
@@ -18,7 +19,7 @@ const MoviDetailsPage = () => {
   return (
     <>
       {isLoading && <span>Details are loading... </span>}
-      {isError && <span>An error occured: {error}</span>}
+      {isError && <spa>An error occured: {error}</spa>}
       {data && (
         <>
           <Card.Body className='text-light row p-5 bg-black'>
@@ -30,37 +31,60 @@ const MoviDetailsPage = () => {
             </Col>
             <Col>
               <Card.Text>
-                <p>
+                <h4>
                   <strong>{data?.original_title}</strong>
-                </p>
-                <p>
+                </h4>
+                <span>
+                  <strong>
+                    {data?.genres.length > 1 ? 'Genres:' : 'Genre'}
+                  </strong>
                   {data?.genres.map((genre, i) => (
                     <>
+                    {' '}
                       {genre.name}
                       {', '}
                     </>
                   ))}
-                </p>
-                <p>{data?.original_language}</p>
-                <p>
+                </span><br/>
+               <span><stong>Original language: </stong>{data?.original_language}</span>
+               <br/>
+                <span>
                   {data?.production_countries.map((country, i) => (
-                    <>{country.name}</>
+                    <>
+                      <strong>Produced at </strong>
+                      {country.name}
+                    </>
                   ))}
-                </p>
-                <p> {data?.status}</p>
-                <p> {data?.overview}</p>
-                <p>
-                  {data?.production_companies.map((company, i) => (
+                </span>
+                <br/>
+                <span>
+                  {' '}
+                  <strong>{data?.status} on </strong>
+                  {data?.release_date}
+                </span>
+                <br/>
+                <span>
+                  {' '}
+                  <strong>Overview:</strong> {data?.overview}
+                </span>
+                <br/>
+                <span>
+                <strong>Produced by</strong> {data?.production_companies.map((company, i) => (
                     <>
                       {' '}
-                      {company.name} company {'('}
-                      {company.origin_country}
-                      {')'}
+                      {company.name}{','}
                       <br />
                     </>
                   ))}
-                </p>
-                <p>
+                </span>
+                <span>
+                  
+                    <strong>
+                      {data?.genres.length > 1
+                        ? 'Available languages:'
+                        : 'Available language:'}
+                    </strong>
+             
                   {data?.spoken_languages.map((lang, i) => (
                     <>
                       {' '}
@@ -68,7 +92,7 @@ const MoviDetailsPage = () => {
                       {','}
                     </>
                   ))}
-                </p>
+                </span>
               </Card.Text>
             </Col>
           </Card.Body>

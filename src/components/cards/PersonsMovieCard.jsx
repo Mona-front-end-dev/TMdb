@@ -23,13 +23,13 @@ const PersonsMovieCard = () => {
         {data &&
           data?.credits.cast.map((pmovie, i) => (
             <Col md={3}>
-              <Link variant='dark' to={`/movies/${pmovie.id}`}>
-                <Card className='shadow'>
+              <Link variant='dark' to={`/movies/${pmovie.id}`} className='text-decoration-none'>
+                <Card className='shadow mt-4'>
                     <img
                       src={tumbnailPreImgUrl + pmovie.poster_path}
                       className='img-fluid'
                     />
-                  <Card.Text className='text-dark'>
+                  <Card.Text className='text-dark text-center py-3'>
                     {pmovie.original_title}
                   </Card.Text>
                 </Card>
