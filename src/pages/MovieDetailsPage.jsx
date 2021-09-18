@@ -22,12 +22,20 @@ const MoviDetailsPage = () => {
       {data && (
         <>
           <Card.Body className='text-light row p-5 bg-black'>
-            <Col xs={3}>
-              <img
-                src={tumbnailPreImgUrl + data.poster_path}
-                className='img-fluid'
-                alt={data?.original_title}
-              />
+            <Col sm={4} md={3}>
+              {data?.poster_path ? (
+                <img
+                  src={tumbnailPreImgUrl + data.poster_path}
+                  className='img-fluid d-block m-auto'
+                  alt={data?.original_title}
+                />
+              ) : (
+                <img
+                  src='/movie.jpeg'
+                  className='img-fluid d-block m-auto'
+                  alt={data?.original_title}
+                />
+              )}
             </Col>
             <Col>
               <h4>
@@ -48,16 +56,12 @@ const MoviDetailsPage = () => {
                       </span>
                     ))
                   : null}
-                {
-                  data?.original_language ?
+                {data?.original_language ? (
                   <>
-                  <strong>Original language: </strong>
-                  {data?.original_language}
+                    <strong>Original language: </strong>
+                    {data?.original_language}
                   </>
-                  :
-                  null
-                }
-                
+                ) : null}
                 {data.production_countries.map((country, i) => (
                   <span key={i}>
                     <strong>Produced at: </strong>
@@ -73,30 +77,30 @@ const MoviDetailsPage = () => {
                   </>
                 ) : (
                   <>
-                  <strong>Overview:</strong> <span>No data available</span> 
+                    <strong>Overview:</strong> <span>No data available</span>
                   </>
                 )}
                 <br />
                 <strong>Produced by:</strong>
-                { data?.production_companies.length ? data.production_companies.map((company, i) => (
-                  <span key={i}>
-                    {' '}
-                    {company.name}
-                    {data.production_companies.length !== i + 1 ? ',' : ''}
-                  </span>
-                )):
-                <span> No data is available.</span>
-                }
+                {data?.production_companies.length ? (
+                  data.production_companies.map((company, i) => (
+                    <span key={i}>
+                      {' '}
+                      {company.name}
+                      {data.production_companies.length !== i + 1 ? ',' : ''}
+                    </span>
+                  ))
+                ) : (
+                  <span> No data is available.</span>
+                )}
                 <br />
-                {
-                  data?.genres.length ?
+                {data?.genres.length ? (
                   <strong>
-                  {data?.genres.length > 1
-                    ? 'Available languages:'
-                    : 'Available language:'}
+                    {data?.genres.length > 1
+                      ? 'Available languages:'
+                      : 'Available language:'}
                   </strong>
-                  : null
-                }
+                ) : null}
                 {data?.spoken_languages.map((lang, i) => (
                   <span key={i}>
                     {' '}
@@ -107,10 +111,7 @@ const MoviDetailsPage = () => {
               </Card.Text>
             </Col>
           </Card.Body>
-          { data?.credits.cast.length
-            ? <PersonCard data={data} />
-            : null 
-          }
+          {data?.credits.cast.length ? <PersonCard data={data} /> : null}
         </>
       )}
     </>

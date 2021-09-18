@@ -17,7 +17,7 @@ const TopListed = () => {
     <>
       <Container>
         <Row>
-          {isLoading &&<span>Movies are laoding... </span>}
+          {isLoading && <span>Movies are laoding... </span>}
           {isError && <span>An error occured: {error}</span>}
           {data &&
             data?.results.map((movie, i) => (

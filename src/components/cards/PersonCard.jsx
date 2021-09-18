@@ -12,29 +12,31 @@ const PersonCard = ({ data }) => {
       <h4 className='mt-4'>Characters:</h4>
       <Row>
         {data?.credits.cast.map((person, i) => (
-          <Col md={2} key={i}>
+          <Col xs={12} sm={4} md={3} lg={2} key={i}>
             <Link
               variant='dark'
-              className='text-decoration-none'
+              className='text-decoration-none person-card d-block'
               to={`/people/${person.id}`}
             >
               <Card className='shadow'>
-                {person.profile_path ?
+                {person.profile_path ? (
                   <Card.Img
-                  variant='top'
-                  src={tumbnailPreImgUrl + person.profile_path}
-                  className='img-fluid'
-                />
-                :
-                <Card.Img
-                  variant='top'
-                  src="/avatar.png"
-                  className='img-fluid'
-                />}
-                
-                <Card.Body className='text-dark border'>
-                  <Card.Title>{person.name}</Card.Title>
-                  <Card.Text className='text-dark'>
+                    variant='top'
+                    src={tumbnailPreImgUrl + person.profile_path}
+                    className='img-fluid'
+                  />
+                ) : (
+                  <Card.Img
+                    variant='top'
+                    src='/avatar.png'
+                    className='img-fluid'
+                  />
+                )}
+                <Card.Body className='text-dark'>
+                  <Card.Title className='person-title'>
+                    {person.name}
+                  </Card.Title>
+                  <Card.Text className='text-dark person-details'>
                     {person.character}
                   </Card.Text>
                 </Card.Body>

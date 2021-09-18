@@ -6,8 +6,7 @@ import { getPersonsDetailsByPersonId } from '../services/TmApi';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import PersonsMovieCard from '../components/cards/PersonsMovieCard'
-
+import MoviCard from '../components/cards/MovieCard';
 
 const PersonDetailsPage = () => {
   const { id } = useParams();
@@ -23,29 +22,69 @@ const PersonDetailsPage = () => {
       {isLoading && <p>Details are loading... </p>}
       {isError && <p>An error occured: {error}</p>}
       {data && (
-        <Card className='shadow'>
-          <Row className='mt-5 mx-3'>
-            <Col>
-              <Image src={tumbnailPreImgUrl + data.profile_path} rounded />
-              <Card.Body className='text-dark'>
-                <Card.Text className='text-dark'>
-                  {(data.birthday?<><strong>Born on </strong>{data.birthday}</>:(''))}
-                </Card.Text>
-                <Card.Text className='text-dark'>
-                {(data.birthday?<><strong>Born att</strong> {data.place_of_birth}</>:(''))}
-                </Card.Text>
-                <Card.Text className='text-dark'>
-                 {(data.known_for_department?<><strong> Known for </strong>{data.known_for_department}</>:(''))}
-                </Card.Text>
-              </Card.Body>
-            </Col>
-            <Col sm={8}>
+        <Row className='mt-5 the-person rounded py-5'>
+          <Col md={4}>
+            {data.profile_path ? (
+              <Image
+                src={tumbnailPreImgUrl + data.profile_path}
+                rounded
+                className='d-block m-auto'
+              />
+            ) : (
+              <Image src='/avatar.png' rounded className='d-block m-auto' />
+            )}
+            <Card.Body className='text-dark text-center'>
+              <Card.Text className='text-dark'>
+                {data.birthday ? (
+                  <>
+                    <strong>Born on </strong>
+                    {data.birthday}
+                  </>
+                ) : (
+                  ''
+                )}
+              </Card.Text>
+              <Card.Text className='text-dark'>
+                {data.birthday ? (
+                  <>
+                    <strong>Born at </strong> {data.place_of_birth}
+                  </>
+                ) : (
+                  ''
+                )}
+              </Card.Text>
+              <Card.Text className='text-dark'>
+                {data.known_for_department ? (
+                  <>
+                    <strong> Known for </strong>
+                    {data.known_for_department}
+                  </>
+                ) : (
+                  ''
+                )}
+              </Card.Text>
+            </Card.Body>
+          </Col>
+          <Col md={8}>
+            <section className='person-details'>
               <Card.Title>{data.name}</Card.Title>
-              <Card.Text>{(data.biography?<>{data.biography}</>:(`There is no biography available for ${data.name}`))}</Card.Text>
-              <PersonsMovieCard />
-            </Col>
-          </Row>
-        </Card>
+              <Card.Text>
+                {data.biography ? (
+                  <>{data.biography}</>
+                ) : (
+                  `There is no biography available for ${data.name}`
+                )}
+              </Card.Text>
+            </section>
+            <Row>
+              {data?.credits.cast.map((movie, i) => (
+                <Col sm={6} lg={3} xl={2} className='mb-3'>
+                  <MoviCard className movie={movie} />
+                </Col>
+              ))}
+            </Row>
+          </Col>
+        </Row>
       )}
     </>
   );

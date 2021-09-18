@@ -60,14 +60,6 @@ export const getDetailsAndCharactersByMovieId = async (id) => {
 //https://api.themoviedb.org/3/person/6?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&append_to_response=credits
 //create Endpoint to get person details by id
 export const getPersonsDetailsByPersonId = async (id) => {
-  const endpoint = `/person/${id}?${staticQueries}`;
-  const data = await get(endpoint);
-  return data.data;
-};
-
-//https://api.themoviedb.org/3/person/7?api_key=e11ef120fb831c1ff10324b71ce6c686&language=en-US&append_to_response=credits
-//create Endpoint to get person's movies by id
-export const getPersonsMoviesByPersonId = async (id) => {
   const endpoint = `/person/${id}?${staticQueries}&append_to_response=credits`;
   const data = await get(endpoint);
   return data.data;

@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
 import { getMostPopular } from '../../services/TmApi';
 import { useLocation } from 'react-router-dom';
 import { useQuery } from 'react-query';

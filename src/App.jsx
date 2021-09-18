@@ -12,6 +12,7 @@ import MovieDetailsPage from './pages/MovieDetailsPage';
 import PersonDetailsPage from './pages/PersonDetailsPage';
 import Container from 'react-bootstrap/Container';
 import FetchingSpinner from './components/Fetchingspinner';
+import Footer from './pages/partials/Footer';
 
 function App() {
   return (
@@ -34,7 +35,8 @@ function App() {
             <Genres />
           </Route>
           <Route path='/genres'>
-            <Redirect to="/genres/28" /> // to kkep genre tab activated when selecting different genres
+            <Redirect to='/genres/28' /> // to kkep genre tab activated when
+            selecting different genres
           </Route>
           <Route path='/movies/:id'>
             <MovieDetailsPage />
@@ -47,6 +49,7 @@ function App() {
           </Route>
         </Switch>
       </Container>
+      <Footer />
     </>
   );
 }
