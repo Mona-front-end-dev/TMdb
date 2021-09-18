@@ -9,7 +9,7 @@ const Pagination = ({ setPage, page, isPreviousData, hasMore }) => {
         onClick={() => setPage((old) => Math.max(old - 1, 1))}
         disabled={page === 1}
       >
-        Prev
+        Previous
       </Button>
       <span>Page {page}</span>
       <Button
