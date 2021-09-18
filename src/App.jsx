@@ -35,8 +35,7 @@ function App() {
             <Genres />
           </Route>
           <Route path='/genres'>
-            <Redirect to='/genres/28' /> // to kkep genre tab activated when
-            selecting different genres
+            <Redirect to='/genres/28' /> // to kkep genre tab activated when selecting different genres
           </Route>
           <Route path='/movies/:id'>
             <MovieDetailsPage />
