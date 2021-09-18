@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
 import PersonCard from '../components/cards/PersonCard';
 import { getDetailsAndCharactersByMovieId } from '../services/TmApi';
-
+import Alert from 'react-bootstrap/Alert'
 
 const MoviDetailsPage = () => {
   const { id } = useParams();
@@ -15,6 +15,23 @@ const MoviDetailsPage = () => {
     ['movieDetails', id],
     () => getDetailsAndCharactersByMovieId(id)
   );
+
+  let toBeRenderedGenres = null;
+  let genresTitle = null;
+
+  if (data?.genres.length) {
+    genresTitle = <strong>                    
+      {data?.genres.length > 1 ? 'Genres:' : 'Genre'}
+    </strong>
+
+    toBeRenderedGenres = data.genres.map((genre, i) => (
+      <span key={i}>
+        {' '}
+        {genre.name}
+        {data.genres.length !== i + 1 ? ',' : ''}
+      </span> 
+    ))
+  }
 
   return (
     <>
@@ -30,69 +47,52 @@ const MoviDetailsPage = () => {
               />
             </Col>
             <Col>
-              <Card.Text>
                 <h4>
                   <strong>{data?.original_title}</strong>
                 </h4>
-                <span>
-                  <strong>
-                    {data?.genres.length > 1 ? 'Genres:' : 'Genre'}
-                  </strong>
-                  {data?.genres.map((genre, i) => (
-                    <>
-                    {' '}
-                      {genre.name}
-                      {', '}
-                    </>
-                  ))}
-                </span><br/>
-               <span><stong>Original language: </stong>{data?.original_language}</span>
-               <br/>
-                <span>
-                  {data?.production_countries.map((country, i) => (
-                    <>
+              <Card.Text>
+                { genresTitle }
+                { toBeRenderedGenres } 
+                <br />
+                  <strong>Original language: </strong>
+                  {data?.original_language}
+                <br />
+                  {data.production_countries.map((country, i) => (
+                    <span key={i}>
                       <strong>Produced at </strong>
                       {country.name}
-                    </>
+                    </span>
                   ))}
-                </span>
-                <br/>
-                <span>
+                <br />
                   {' '}
                   <strong>{data?.status} on </strong>
                   {data?.release_date}
-                </span>
-                <br/>
-                <span>
+                <br />
                   {' '}
                   <strong>Overview:</strong> {data?.overview}
-                </span>
-                <br/>
-                <span>
-                <strong>Produced by</strong> {data?.production_companies.map((company, i) => (
-                    <>
+                <br />
+                  <strong>Produced by</strong>{' '}
+                  {data?.production_companies.map((company, i) => (
+                    <span key={i}>
                       {' '}
-                      {company.name}{','}
+                      {company.name}
+                      {','}
                       <br />
-                    </>
+                    </span>
                   ))}
-                </span>
-                <span>
-                  
-                    <strong>
-                      {data?.genres.length > 1
-                        ? 'Available languages:'
-                        : 'Available language:'}
-                    </strong>
-             
+                  <strong>
+                    {data?.genres.length > 1
+                      ? 'Available languages:'
+                      : 'Available language:'}
+                  </strong>
+
                   {data?.spoken_languages.map((lang, i) => (
-                    <>
+                    <span key={i}>
                       {' '}
                       {lang.english_name}
                       {','}
-                    </>
+                    </span>
                   ))}
-                </span>
               </Card.Text>
             </Col>
           </Card.Body>
