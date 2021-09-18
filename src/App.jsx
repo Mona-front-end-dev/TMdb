@@ -10,7 +10,8 @@ import Genres from './components/Genres';
 import Popular from './components/Movies/Popular';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import PersonDetailsPage from './pages/PersonDetailsPage';
-import Container  from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
+import FetchingSpinner from './components/Fetchingspinner';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Navigation />
       <Container>
         <Tabs />
+        <FetchingSpinner />
         <Switch>
           <Route exact path='/'>
             <HomePage />
