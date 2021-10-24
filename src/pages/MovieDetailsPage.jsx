@@ -49,21 +49,23 @@ const MoviDetailsPage = () => {
                 ) : null}
                 {data?.genres.length
                   ? data.genres.map((genre, i) => (
-                      <span key={i}>
+                      <span key={genre.name}>
                         {' '}
                         {genre.name}
                         {data.genres.length !== i + 1 ? ',' : ''}
                       </span>
                     ))
                   : null}
+                <br />
                 {data?.original_language ? (
                   <>
                     <strong>Original language: </strong>
                     {data?.original_language}
                   </>
                 ) : null}
-                {data.production_countries.map((country, i) => (
-                  <span key={i}>
+                <br />
+                {data.production_countries.map((country) => (
+                  <span key={country.name}>
                     <strong>Produced at: </strong>
                     {country.name}
                   </span>
@@ -84,7 +86,7 @@ const MoviDetailsPage = () => {
                 <strong>Produced by:</strong>
                 {data?.production_companies.length ? (
                   data.production_companies.map((company, i) => (
-                    <span key={i}>
+                    <span key={company.name}>
                       {' '}
                       {company.name}
                       {data.production_companies.length !== i + 1 ? ',' : ''}
