@@ -11,8 +11,8 @@ const PersonCard = ({ data }) => {
     <>
       <h4 className='mt-4'>Characters:</h4>
       <Row>
-        {data?.credits.cast.map((person, i) => (
-          <Col xs={12} sm={4} md={3} lg={2} key={i}>
+        {data?.credits.cast.map((person) => (
+          <Col xs={12} sm={4} md={3} lg={2} key={person.id}>
             <Link
               variant='dark'
               className='text-decoration-none person-card d-block'

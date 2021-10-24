@@ -19,7 +19,7 @@ const Genres = () => {
             {isLoading && <p>Movies are loading... </p>}
             {isError && <p>An error occured: {error}</p>}
             {data &&
-              data?.genres.map((genre, i) => (
+              data?.genres.map((genre) => (
                 <NavLink
                   key={genre.id}
                   className='genre-link'

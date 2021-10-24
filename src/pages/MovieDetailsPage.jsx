@@ -104,7 +104,7 @@ const MoviDetailsPage = () => {
                   </strong>
                 ) : null}
                 {data?.spoken_languages.map((lang, i) => (
-                  <span key={i}>
+                  <span key={lang.english_name}>
                     {' '}
                     {lang.english_name}
                     {data.spoken_languages.length !== i + 1 ? ',' : ''}
