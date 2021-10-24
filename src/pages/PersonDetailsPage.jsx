@@ -78,8 +78,8 @@ const PersonDetailsPage = () => {
             </section>
             <Row>
               {data?.credits.cast.map((movie) => (
-                <Col sm={6} lg={3} xl={2} className='mb-3'>
-                  <MoviCard movie={movie} key={movie.id}/>
+                <Col sm={6} lg={3} xl={2} className='mb-3' key={movie.id}>
+                  <MoviCard movie={movie} />
                 </Col>
               ))}
             </Row>
