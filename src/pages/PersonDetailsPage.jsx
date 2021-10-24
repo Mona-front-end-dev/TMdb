@@ -79,7 +79,7 @@ const PersonDetailsPage = () => {
             <Row>
               {data?.credits.cast.map((movie, i) => (
                 <Col sm={6} lg={3} xl={2} className='mb-3'>
-                  <MoviCard className movie={movie} />
+                  <MoviCard className movie={movie} key={i}/>
                 </Col>
               ))}
             </Row>
