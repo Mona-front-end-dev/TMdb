@@ -10,7 +10,7 @@ import MoviCard from '../components/cards/MovieCard';
 
 const PersonDetailsPage = () => {
   const { id } = useParams();
-  const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w300';
+  const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w200';
 
   const { data, error, isError, isLoading } = useQuery(
     ['personDetails', id],
@@ -33,7 +33,7 @@ const PersonDetailsPage = () => {
             ) : (
               <Image src='/avatar.png' rounded className='d-block m-auto' />
             )}
-            <Card.Body className='text-dark text-center'>
+            <Card.Body className='text-dark text-center mb-4'>
               <Card.Text className='text-dark'>
                 {data.birthday ? (
                   <>
