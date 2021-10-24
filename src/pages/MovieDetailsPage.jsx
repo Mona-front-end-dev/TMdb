@@ -22,7 +22,7 @@ const MoviDetailsPage = () => {
       {data && (
         <>
           <Card.Body className='text-light row p-5 bg-black'>
-            <Col sm={4} md={3}>
+            <Col sm={4} md={3} className='mb-4'>
               {data?.poster_path ? (
                 <img
                   src={tumbnailPreImgUrl + data.poster_path}
