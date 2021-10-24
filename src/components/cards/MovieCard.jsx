@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 const MoviCard = ({ movie }) => {
-  const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w200';
+  const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w1280';
 
   return (
     <>

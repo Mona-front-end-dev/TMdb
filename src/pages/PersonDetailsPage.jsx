@@ -10,7 +10,7 @@ import MoviCard from '../components/cards/MovieCard';
 
 const PersonDetailsPage = () => {
   const { id } = useParams();
-  const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w200';
+  const tumbnailPreImgUrl = 'https://image.tmdb.org/t/p/w1280';
 
   const { data, error, isError, isLoading } = useQuery(
     ['personDetails', id],
