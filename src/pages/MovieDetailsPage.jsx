@@ -56,21 +56,21 @@ const MoviDetailsPage = () => {
                       </span>
                     ))
                   : null}
-                <br />
+                {data?.genres.length ? <br /> : null}
                 {data?.original_language ? (
                   <>
                     <strong>Original language: </strong>
                     {data?.original_language}
                   </>
                 ) : null}
-                <br />
+                {data?.original_language ? <br /> : null}
                 {data.production_countries.map((country) => (
                   <span key={country.name}>
                     <strong>Produced at: </strong>
                     {country.name}
                   </span>
                 ))}
-                <br /> <strong>{data?.status} on: </strong>
+                <strong>{data?.status} on: </strong>
                 {data?.release_date}
                 <br />{' '}
                 {data?.overview ? (
