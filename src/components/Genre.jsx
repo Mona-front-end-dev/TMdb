@@ -15,7 +15,7 @@ By that url get read and updated the part which is after ?. For example(?page=2)
 const Genre = () => {
   const { genreId } = useParams();
   const [searchParams, setSearchParams] = useUrlSearchParams(
-    { page: 1 },
+    {page: 1 },
     { page: Number }
   ); //
   const [page, setPage] = useState(searchParams.page);
@@ -31,15 +31,14 @@ const Genre = () => {
   );
 
   useEffect(() => {
-    //when page state changes, setSearchParams updates ?= in url.
+    // When page state changes, setSearchParams updates ?= in url.
     setSearchParams({ ...searchParams, page });
   }, [page]);
 
   useEffect(() => {
-    // set pagination to 1 when new genre selected
-    setPage(1);
-    setSearchParams({ ...searchParams, page });
-  }, [genreId]);
+    // When page query string in url changes, updates the page state.
+    setPage(searchParams.page);
+  }, [searchParams.page]);
 
   return (
     <>
